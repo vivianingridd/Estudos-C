@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main(void) {
+   float n1, n2, result;
+  char op;
+
+  printf("\n Calculadora. Digite dois numeros: \n");
+  scanf("%f", &n1);
+  scanf("%f", &n2);
+  scanf("%c", &op);
+
+  printf("\n Operação: \n soma (+) \n subtração (-) \n multiplicação(*) \n divisão (/) \n");
+  scanf("%c", &op);
+
+  if ( op == '+')
+    result = n1 + n2;
+  if ( op == '-')
+    result = n1 - n2;
+  if ( op == '*')
+    result = n1 * n2 ;
+  if ( op == '/')
+    result = n1 / n2 ;
+  if ( op != '+' && op != '-' && op != '*' && op != '/')
+    printf("\n Operador invalido");
+  else
+    printf("\n Resultado: %2.f", result);
+
+
+
+}
