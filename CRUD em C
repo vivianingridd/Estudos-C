@@ -1,0 +1,108 @@
+#include "crudfc.h"
+
+#define COMECAR 0
+#define CREATE 1
+#define READ 2
+#define UPDATE 3
+#define DELETE 4
+#define SAIR 5
+
+int main(void) {
+    estudante cad;
+    int opcao = COMECAR;
+
+    while (opcao != SAIR) {
+        printf("Registro de estudante, digite uma opção: \n 1-Cadastrar: \n 2-Mostrar: \n 3-Atualizar: \n 4-Deletar: \n 5-Encerrar:");
+      
+
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+        case CREATE:
+            cad = criarEstudante();
+            break;
+        case READ:
+            mostrarEstudante(cad);
+            break;
+        case UPDATE:
+            cad = atualizarEstudante(cad);
+            break;
+        case DELETE:
+            cad = deletarEstudante();
+            break;
+        case SAIR:
+            printf("Encerrando o programa");
+            break;
+        default:
+            printf("Opçao inválida \n");
+        }
+    }
+
+    return 0;
+}
+
+
+-----------------------------
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+typedef struct {
+  int codigo;
+  char nome[30];
+  int idade;
+} estudante;
+
+estudante criarEstudante() {
+
+  estudante cad;
+
+  printf("Registrando estudante: \n");
+  printf("Digite o código: \n");
+  scanf("%d", &cad.codigo);
+  printf("Digite o nome: \n");
+  scanf(" %s", cad.nome);
+  printf("Digite a idade: \n");
+  scanf("%d", &cad.idade);
+
+  return cad;
+}
+
+void mostrarEstudante(estudante cad) {
+
+  printf("estudante registrado: \n");
+  printf("Código: %d \n", cad.codigo);
+  printf("Nome: %s \n", cad.nome);
+  printf("Idade: %d \n", cad.idade);
+
+}
+
+estudante atualizarEstudante(estudante cad) {
+
+  estudante copia = cad;
+
+  printf("Atualizando Estudante: \n");
+  printf("Digite o nome: \n");
+  scanf(" %s", copia.nome);
+  printf("Digite a idade: \n");
+  scanf("%d", &copia.idade);
+
+  return copia;
+}
+
+estudante deletarEstudante() {
+
+  estudante cad;
+
+  cad.codigo = 0;
+  strcpy(cad.nome, "");
+  cad.idade = 0;
+
+  printf("Estudante excluído com sucesso\n");
+
+  return cad;
+}
+ 
