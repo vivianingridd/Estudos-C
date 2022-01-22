@@ -1,2 +1,2 @@
 # Estudos-C
-Estudos em linguagem C
+Alguns exemplos simples de códigos para estudos em linguagem C.
